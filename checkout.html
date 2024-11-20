@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+  <link href="bootstrap.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <!-- Checkout Form -->
+      <div class="col-md-8">
+        <h2 class="mb-4">Contact</h2>
+        <form id="checkoutForm">
+          <!-- Contact Section -->
+          <div class="mb-3">
+            <input type="text" class="form-control" id="contactInput" placeholder="Email or mobile phone number" required>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="emailOffers">
+            <label class="form-check-label" for="emailOffers">Email me with news and offers</label>
+          </div>
+
+          <!-- Delivery Section -->
+          <h2 class="mb-4 mt-5">Delivery</h2>
+          <div class="mb-3">
+            <select class="form-select">
+              <option selected>India</option>
+            </select>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <input type="text" class="form-control" id="firstName" placeholder="First name" required>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="lastName" placeholder="Last name" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" id="address" placeholder="Address" required>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" id="apartment" placeholder="Apartment, suite, etc. (optional)">
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <input type="text" class="form-control" id="city" placeholder="City" required>
+            </div>
+            <div class="col">
+              <select class="form-select">
+                <option selected>Delhi</option>
+              </select>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="postalCode" placeholder="PIN code" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" id="phone" placeholder="Phone" required>
+          </div>
+
+          <!-- Shipping Method Section -->
+          <h2 class="mb-4 mt-5">Shipping method</h2>
+          <div class="mb-3">
+            <select class="form-select" id="shippingMethod">
+              <option selected>Online</option>
+              <option>Cash on Delivery</option>
+            </select>
+          </div>
+
+          <!-- Place Order Button -->
+          <button type="submit" class="btn btn-primary w-100">Place Order</button>
+        </form>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex mb-3">
+              <img src="Radhakrishn_Bastra/img-1.jpg" alt="Product" width="50" height="50" class="me-3">
+              <div>
+                <h6 class="mb-0">Flower patti heavy laddu gopal dress with pagadi</h6>
+                <small class="text-muted">Quantity: 6</small>
+              </div>
+              <div class="ms-auto">₹345.00</div>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Subtotal</span>
+              <span>₹345.00</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Shipping</span>
+              <span>Enter shipping address</span>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between">
+              <h5>Total</h5>
+              <h5>₹345.00</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Collect form data
+      const formData = {
+        contact: document.getElementById('contactInput').value,
+        emailOffers: document.getElementById('emailOffers').checked,
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        address: document.getElementById('address').value,
+        apartment: document.getElementById('apartment').value,
+        city: document.getElementById('city').value,
+        postalCode: document.getElementById('postalCode').value,
+        phone: document.getElementById('phone').value,
+        shippingMethod: document.getElementById('shippingMethod').value,
+      };
+
+      // Display confirmation message
+      alert('Order placed successfully!');
+
+      // Here you can send `formData` to the server if required
+      console.log('Form Data:', formData);
+
+      // Optionally clear the form after submission
+      document.getElementById('checkoutForm').reset();
+    });
+  </script>
+</body>
+</html>

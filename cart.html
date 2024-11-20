@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<h1>hi</h1>
+
+    <!-- <div class="container mt-5">
+        <h2>Your Cart</h2>
+        <div id="cartItems" class="row">
+            <!-- Cart items will be displayed here -->
+        <!-- </div>
+        <button onclick="checkout()" class="btn btn-primary mt-3">Proceed to Checkout</button>
+    </div> -->
+
+    <!-- <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+            const cartContainer = document.getElementById("cartItems");
+
+            cartItems.forEach((item, index) => {
+                cartContainer.innerHTML += `
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="${item.image}" class="card-img-top" alt="${item.title}">
+                            <div class="card-body">
+                                <h5 class="card-title">${item.title}</h5>
+                                <p class="card-text">${item.text}</p>
+                                <button onclick="removeFromCart(${index})" class="btn btn-danger">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        });
+    </script> -->
+    <script>
+        var headers = new Headers();
+headers.append("X-CSCAPI-KEY", "API_KEY");
+
+var requestOptions = {
+   method: 'GET',
+   headers: headers,
+   redirect: 'follow'
+};
+
+fetch("https://api.countrystatecity.in/v1/countries", requestOptions)
+.then(response => response.text())
+.then(result => console.log(result))
+.catch(error => console.log('error', error));
+    </script>
+</body>
+</html>
